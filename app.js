@@ -52,15 +52,18 @@ var imgModel = require('./model');                                // Require the
 // Step 7 - the GET request handler that provides the HTML UI
 
 app.get('/', (req, res) => {                    
-	imgModel.find({}, (err, items) => {                                 //Finds all the files and provides it 
-		if (err) {
+	imgModel.find({}, (err, items) )                                //Finds all the files and provides it 
+    .then(obj => {
+        if (err) {
 			console.log(err);
 			res.status(500).send('An error occurred', err);             //Error is handled 
 		}
 		else {
 			res.render('imagesPage', { items: items });                 //The response is handled by rendering the page 
 		}
-	});
+    })
+	
+	
 });
 
 
