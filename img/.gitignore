@@ -3,5 +3,4 @@ node_modules/
 
 
 
-const new_img = req.file.filename
-    var encode_img = new_img.toString('base64');
+
